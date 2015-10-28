@@ -6,15 +6,6 @@ for i in `find . -name MainActivity.java`; do
   fi
 done
 
-for i in `find . -name ids.xml`; do
-  wrong=`cat $i | grep '<string name=' | grep -v ReplaceMe`
-  wrong_count=`cat $i | grep '<string name=' | grep -v ReplaceMe | wc -l`
-  if [ "$wrong_count" -gt 0 ]; then
-    echo "*** Some IDs on $i are not set to 'ReplaceMe'. Change them to 'ReplaceMe'!"
-    echo "$wrong"
-    exit 1
-  fi
 done
 
-echo "Presubmit checks passed."
 
